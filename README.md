@@ -1,0 +1,2 @@
+# TRUSTICKET-CORE
+Core API
