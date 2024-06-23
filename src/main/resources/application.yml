@@ -42,3 +42,7 @@ springdoc:
 error:
   printStackTrace: true # Stack trace ?? ??
   printStackTraceLine: 10 # Stack trace ?? ? ?
+
+jwt:
+  expiration_time: 86400000 #1?
+  secret: VlwEyVBsYt9V7zq57TejMnVUyzblYcfPQye08f7MGVA9XkHa

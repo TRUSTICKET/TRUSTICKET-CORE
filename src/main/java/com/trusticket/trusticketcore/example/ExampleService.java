@@ -2,7 +2,7 @@ package com.trusticket.trusticketcore.example;
 
 
 import com.trusticket.trusticketcore.common.ErrorDefineCode;
-import com.trusticket.trusticketcore.config.exception.custom.exception.AlreadyExistElementException409;
+import com.trusticket.trusticketcore.common.exception.custom.exception.AlreadyExistElementException409;
 import com.trusticket.trusticketcore.domain.Example;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;

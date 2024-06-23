@@ -1,7 +1,7 @@
-package com.trusticket.trusticketcore.config.exception.custom.exception;
+package com.trusticket.trusticketcore.common.exception.custom.exception;
 
 import com.trusticket.trusticketcore.common.ErrorDefineCode;
-import com.trusticket.trusticketcore.config.exception.custom.BasicCustomException500;
+import com.trusticket.trusticketcore.common.exception.custom.BasicCustomException500;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 

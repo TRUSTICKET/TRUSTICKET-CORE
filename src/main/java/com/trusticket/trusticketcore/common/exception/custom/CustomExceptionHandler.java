@@ -1,6 +1,6 @@
-package com.trusticket.trusticketcore.config.exception.custom;
+package com.trusticket.trusticketcore.common.exception.custom;
 
-import com.trusticket.trusticketcore.config.exception.global.GlobalExceptionHandler;
+import com.trusticket.trusticketcore.common.exception.global.GlobalExceptionHandler;
 import io.swagger.v3.oas.annotations.Hidden;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
