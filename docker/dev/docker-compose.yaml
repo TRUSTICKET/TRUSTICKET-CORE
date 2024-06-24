@@ -1,10 +1,10 @@
 version: "3.7"
 services:
-  tusticket-database:
+  trusticket-core-database:
     platform: linux/x86_64
     image: mariadb:10.11.2
     environment:
-      MYSQL_DATABASE: "trusticket-db"
+      MYSQL_DATABASE: "trusticket-core-db"
       MYSQL_ROOT_PASSWORD: "1111"
     ports:
       - 4003:3306
