@@ -28,7 +28,7 @@ class TrusticketCoreApplicationTests {
 		CountDownLatch latch = new CountDownLatch(threadCount);
 
 		for(int i = 0; i < threadCount; i++){
-			String id = "ID" + i;
+			String id = "cetSSZABXRBCGU9nqg3O";
 //			executorService.submit(() -> {
 //				try{
 //					BookingRequest request = new BookingRequest(id);
@@ -41,7 +41,7 @@ class TrusticketCoreApplicationTests {
 //			});
 			BookingData data = BookingData.builder()
 					.id(id)
-					.memberId("1")
+					.memberId("1" + i)
 					.build();
 
 			Long partition = kafkaProducer.sendBookingData("booking-request", data);
