@@ -36,7 +36,6 @@ public class ExampleApiController {
     private final ExampleService exampleService;
 
     @PostMapping()
-    @PreAuthorize(AuthConstant.AUTH_COMMON)
     public CommonResponse<Long> saveExample(
             @Valid @RequestBody ExampleRequest request
     ) {
@@ -46,9 +45,6 @@ public class ExampleApiController {
     }
 
     @GetMapping("/{pathValue}")
-    @PreAuthorize(AuthConstant.AUTH_COMMON)
-    @ApiResponses(value = {
-    })
     public CommonResponse<List<ExampleResponse>> queryExampleByKey(
             // Path Variable 사용 예시 : /api/v1/example/blah
             @Schema(description = "Path Variable 예시", example = "blah")   //Swagger 파라미터 설명

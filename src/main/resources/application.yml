@@ -1,6 +1,6 @@
 spring:
   application:
-    name: trusticket
+    name: trusticket-core
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://localhost:4003/trusticket-core-db?characterEncoding=UTF-8&serverTimezone=UTC
@@ -51,3 +51,13 @@ error:
 jwt:
   expiration_time: 86400000 #1?
   secret: VlwEyVBsYt9V7zq57TejMnVUyzblYcfPQye08f7MGVA9XkHa
+
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}

@@ -27,7 +27,6 @@ public class BookingApiController {
     private final BookingService bookingService;
 
     @PostMapping("/request")
-    @PreAuthorize(AuthConstant.AUTH_COMMON)
     @Operation(summary = "이벤트 티켓 발권 시도")
     public CommonResponse<Long> insert(@Valid @RequestBody BookingRequest req) {
         Long offset = bookingService.insertBookingInQueue(req);
@@ -37,11 +36,9 @@ public class BookingApiController {
         else{
             throw new RuntimeException("시도 중 오류가 발생하였습니다.");
         }
-
     }
 
     @PostMapping("/cancel")
-    @PreAuthorize(AuthConstant.AUTH_COMMON)
     @Operation(summary = "티켓 발권 대기열 이탈")
     public CommonResponse<Long> quit(@Valid @RequestBody BookingCancelRequest req) {
         Long offset = bookingService.quitBookingInQueue(req);
@@ -51,6 +48,5 @@ public class BookingApiController {
         else{
             throw new RuntimeException("시도 중 오류가 발생하였습니다.");
         }
-
     }
 }
