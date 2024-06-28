@@ -1,6 +1,5 @@
 package com.trusticket.trusticketcore.service.booking;
 
-import com.trusticket.trusticketcore.common.kafka.KafkaConsumerService;
 import com.trusticket.trusticketcore.common.kafka.KafkaProducer;
 import com.trusticket.trusticketcore.config.security.SecurityUtil;
 import com.trusticket.trusticketcore.dto.booking.BookingCancelData;
@@ -18,7 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public class BookingService {
     private final KafkaProducer kafkaProducer;
-    private final KafkaConsumerService kafkaConsumerService;
 
     @Transactional
     public Long insertBookingInQueue(BookingRequest request) {
@@ -27,7 +25,6 @@ public class BookingService {
                 .memberId(SecurityUtil.getCurrentMemberPk().toString())
                 .build();
         long offset = kafkaProducer.sendBookingData("booking-request", data);
-        kafkaConsumerService.fetchOffsets();
         return offset;
     }
 
@@ -37,7 +34,6 @@ public class BookingService {
                 .offsetId(request.getOffsetId())
                 .build();
         long offset = kafkaProducer.sendCancelBooking("booking-cancel", data);
-        kafkaConsumerService.fetchOffsets();
         return offset;
     }
 }
