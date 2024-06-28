@@ -1,7 +1,6 @@
 package com.trusticket.trusticketcore.service.booking;
 
 import com.trusticket.trusticketcore.common.kafka.KafkaProducer;
-import com.trusticket.trusticketcore.config.security.SecurityUtil;
 import com.trusticket.trusticketcore.dto.booking.BookingCancelData;
 import com.trusticket.trusticketcore.dto.booking.BookingCancelRequest;
 import com.trusticket.trusticketcore.dto.booking.BookingData;
@@ -22,7 +21,7 @@ public class BookingService {
     public Long insertBookingInQueue(BookingRequest request) {
         BookingData data = BookingData.builder()
                 .id(request.getId())
-                .memberId(SecurityUtil.getCurrentMemberPk().toString())
+                .memberId(request.getMemberId())
                 .build();
         long offset = kafkaProducer.sendBookingData("booking-request", data);
         return offset;
