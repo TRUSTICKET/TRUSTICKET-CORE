@@ -1,10 +1,7 @@
 package com.trusticket.trusticketcore;
 
 import com.trusticket.trusticketcore.common.kafka.KafkaProducer;
-import com.trusticket.trusticketcore.config.security.SecurityUtil;
 import com.trusticket.trusticketcore.dto.booking.BookingData;
-import com.trusticket.trusticketcore.dto.booking.BookingRequest;
-import com.trusticket.trusticketcore.service.booking.BookingService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

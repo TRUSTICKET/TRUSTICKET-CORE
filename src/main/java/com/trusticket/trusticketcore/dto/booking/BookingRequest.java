@@ -13,9 +13,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BookingRequest {
 
-    @NotBlank(message = "이벤트 ID")
     @Schema(description = "이벤트 ID", example = "cetSSZABXRBCGU9nqg3O")
     private String id;
+
+    @Schema(description = "유저 ID(나중에 없애야함, 보안)", example = "1")
+    private String memberId;
 
 
 }
