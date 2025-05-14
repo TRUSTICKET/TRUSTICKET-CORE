@@ -14,10 +14,7 @@ spring:
         show_sql: true #show sql
         default_batch_fetch_size: 100
   kafka:
-    url: localhost:9092
-    admin:
-      properties:
-        bootstrap.servers: localhost:9092
+    bootstrap-servers: localhost:9092
 
 
 
@@ -61,3 +58,6 @@ eureka:
       defaultZone: http://127.0.0.1:8761/eureka
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+server:
+  port: 8080

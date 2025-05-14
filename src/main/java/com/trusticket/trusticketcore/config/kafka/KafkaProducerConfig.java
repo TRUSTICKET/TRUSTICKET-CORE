@@ -21,7 +21,7 @@ public class KafkaProducerConfig {
 
     private final String url;
     public KafkaProducerConfig(
-            @Value("${spring.kafka.url}") String url
+            @Value("${spring.kafka.bootstrap-servers}") String url
     ) {
         this.url = url;
     }
@@ -29,7 +29,7 @@ public class KafkaProducerConfig {
     @Bean
     public ProducerFactory<String, String> producerFactory(){
         Map<String, Object> properties = new HashMap<>();
-        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, url);
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class); //Serialize 방법 지정
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 

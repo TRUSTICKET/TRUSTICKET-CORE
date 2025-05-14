@@ -2,6 +2,7 @@ package com.trusticket.trusticketcore.config.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -16,12 +17,19 @@ import java.util.Map;
 @EnableKafka
 public class KafkaConsumerConfig {
 
+    private final String url;
+    public KafkaConsumerConfig(
+            @Value("${spring.kafka.bootstrap-servers}") String url
+    ) {
+        this.url = url;
+    }
+
     // Kafka 컨슈머를 생성하기 위한 ConsumerFactory 빈을 정의
     @Bean
     public ConsumerFactory<String, String> consumerFactory(){
         Map<String, Object> properties = new HashMap<>();
 
-        properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+        properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, url);
 
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, "trust-core");
 

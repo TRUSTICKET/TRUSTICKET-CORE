@@ -18,33 +18,33 @@ class TrusticketCoreApplicationTests {
 
 	@Autowired
 	private KafkaProducer kafkaProducer;
-	@Test
-	void 동시응모() throws InterruptedException{
-		int threadCount = 1000;
-		ExecutorService executorService = Executors.newFixedThreadPool(32);
-		CountDownLatch latch = new CountDownLatch(threadCount);
-
-		for(int i = 0; i < threadCount; i++){
-			String id = "cetSSZABXRBCGU9nqg3O";
-//			executorService.submit(() -> {
-//				try{
-//					BookingRequest request = new BookingRequest(id);
-//					Long partition = bookingService.insertBookingInQueue(request);
-//					System.out.println(partition);
-//				}
-//				finally{
-//					latch.countDown();
-//				}
-//			});
-			BookingData data = BookingData.builder()
-					.id(id)
-					.memberId("1" + i)
-					.build();
-
-			Long partition = kafkaProducer.sendBookingData("booking-request", data);
-			System.out.println(partition);
-		}
-	}
+//	@Test
+//	void 동시응모() throws InterruptedException{
+//		int threadCount = 1000;
+//		ExecutorService executorService = Executors.newFixedThreadPool(32);
+//		CountDownLatch latch = new CountDownLatch(threadCount);
+//
+//		for(int i = 0; i < threadCount; i++){
+//			String id = "euvaYZABXRBCGU9n5A3g";
+////			executorService.submit(() -> {
+////				try{
+////					BookingRequest request = new BookingRequest(id);
+////					Long partition = bookingService.insertBookingInQueue(request);
+////					System.out.println(partition);
+////				}
+////				finally{
+////					latch.countDown();
+////				}
+////			});
+//			BookingData data = BookingData.builder()
+//					.id(id)
+//					.memberId("1" + i)
+//					.build();
+//
+//			Long partition = kafkaProducer.sendBookingData("booking-request", data);
+//			System.out.println(partition);
+//		}
+//	}
 
 
 
